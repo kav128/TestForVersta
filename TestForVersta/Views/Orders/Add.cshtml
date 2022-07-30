@@ -2,14 +2,70 @@
 
 <div class="text-center">
     <h1 class="display-4">Orders</h1>
-    
+</div>
+
+<div class="form-container">
     <form method="post">
-        <label>Sender's city <input type="text" name="SenderCity"/></label>
-        <label>Sender's address <input type="text" name="SenderAddress"/></label>
-        <label>Receiver's city <input type="text" name="ReceiverCity"/></label>
-        <label>Receiver's address <input type="text" name="ReceiverAddress"/></label>
-        <label>Parcel weight, kg <input type="text" name="Weight"/></label>
-        <label>Delivery date <input type="text" name="DeliveryDate"/></label>
-        <input type="submit" value="Submit"/>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="SenderCity">Sender's city</label>
+            </div>
+            <div class="form-input">
+                <input type="text" asp-for="SenderCity"/>
+                <span asp-validation-for="SenderCity"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="SenderAddress">Sender's address</label>
+            </div>
+            <div class="form-input">
+                <input type="text" asp-for="SenderAddress"/>
+                <span asp-validation-for="SenderAddress"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="ReceiverCity">Receiver's city</label>
+            </div>
+            <div class="form-input">
+                <input type="text" asp-for="ReceiverCity"/>
+                <span asp-validation-for="ReceiverCity"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="ReceiverAddress">Receiver's address</label>
+            </div>
+            <div class="form-input">
+                <input type="text" asp-for="ReceiverAddress"/>
+                <span asp-validation-for="ReceiverAddress"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="Weight">Parcel weight, kg</label>
+            </div>
+            <div class="form-input">
+                @* <input type="number" asp-for="Weight" min="0" step=".01"/> *@
+                <input type="text" asp-for="Weight"/>
+                <span asp-validation-for="Weight"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                <label asp-for="DeliveryDate">Delivery date</label>
+            </div>
+            <div class="form-input">
+                <input type="date" asp-for="DeliveryDate"/>
+                <span asp-validation-for="DeliveryDate"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-label"></div>
+            <div class="form-input">
+                <input type="submit" value="Submit"/>
+            </div>
+        </div>
     </form>
 </div>

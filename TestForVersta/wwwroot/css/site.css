@@ -30,3 +30,27 @@ td {
 .text-center table {
   margin: auto;
 }
+
+.form-container {
+  width: 400px;
+  margin: auto;
+}
+
+.form-label, .form-input {
+  display: inline-block;
+}
+
+.form-label {
+  width: 140px;
+}
+
+.form-input {
+  margin-left: 10px;
+  width: 245px;
+}
+
+.form-input input {
+  width: 100%;
+  border-radius: 3px;
+  border-width: thin;
+}
