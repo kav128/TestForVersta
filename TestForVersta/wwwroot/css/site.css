@@ -16,3 +16,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+table, td, tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+}
+
+td {
+  padding: 0.75rem;
+}
+
+.text-center table {
+  margin: auto;
+}

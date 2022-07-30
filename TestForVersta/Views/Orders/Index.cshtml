@@ -1,0 +1,39 @@
+﻿@model IList<Order>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Orders</h1>
+    
+    <table>
+        <thead>
+        <tr>
+            <td>Order ID</td>
+            <td>Sender's city</td>
+            <td>Sender's address</td>
+            <td>Receiver's city</td>
+            <td>Receiver's address</td>
+            <td>Parcel weight, kg</td>
+            <td>Delivery date</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.SenderCity</td>
+                <td>@order.SenderAddress</td>
+                <td>@order.ReceiverCity</td>
+                <td>@order.ReceiverAddress</td>
+                <td>@order.Weight.ToString("N2")</td>
+                <td>@order.DeliveryDate.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
+
+

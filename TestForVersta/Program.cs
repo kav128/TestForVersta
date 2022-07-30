@@ -1,7 +1,13 @@
+using TestForVersta.BLL;
+using TestForVersta.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services
+       .UseDataAccessLayer()
+       .UseBusinessLogicLayer()
+       .AddControllersWithViews();
 
 var app = builder.Build();
 
