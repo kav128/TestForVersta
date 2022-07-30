@@ -1,2 +1,15 @@
-﻿@model Order
+﻿@model OrderInsertModel
 
+<div class="text-center">
+    <h1 class="display-4">Orders</h1>
+    
+    <form method="post">
+        <label>Sender's city <input type="text" name="SenderCity"/></label>
+        <label>Sender's address <input type="text" name="SenderAddress"/></label>
+        <label>Receiver's city <input type="text" name="ReceiverCity"/></label>
+        <label>Receiver's address <input type="text" name="ReceiverAddress"/></label>
+        <label>Parcel weight, kg <input type="text" name="Weight"/></label>
+        <label>Delivery date <input type="text" name="DeliveryDate"/></label>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>

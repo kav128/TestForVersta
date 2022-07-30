@@ -35,4 +35,22 @@ public class OrdersController : Controller
     {
         return View();
     }
+    
+    
+    [HttpPost]
+    public IActionResult Add(OrderInsertModel model)
+    {
+        var orderInsertModel = new BLL.Models.OrderInsertModel
+        {
+            SenderCity = model.SenderCity,
+            SenderAddress = model.SenderAddress,
+            ReceiverCity = model.ReceiverCity,
+            ReceiverAddress = model.ReceiverAddress,
+            Weight = model.Weight,
+            DeliveryDate = model.DeliveryDate
+        };
+        
+        _orderService.AddOrder(orderInsertModel);
+        return RedirectToAction("Index");
+    }
 }
