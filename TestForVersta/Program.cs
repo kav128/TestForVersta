@@ -11,8 +11,10 @@ using TestForVersta.Validators;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var connectionString = string.Format(builder.Configuration.GetConnectionString("mssql-db"),
+                                     builder.Configuration.GetValue<string>("MSSQL_PASSWORD"));
 builder.Services
-       .UseDataAccessLayer(optionsBuilder => optionsBuilder.UseSqlite(builder.Configuration.GetConnectionString("sqlite-db")))
+       .UseDataAccessLayer(optionsBuilder => optionsBuilder.UseSqlServer(connectionString))
        .UseBusinessLogicLayer()
        .AddAutoMapper(expression => expression.AddProfilesFromBLL()
                                               .AddProfilesFromPresentation())
