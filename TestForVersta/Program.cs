@@ -26,12 +26,7 @@ var app = builder.Build();
 await using (var scope = app.Services.CreateAsyncScope())
 {
     var applicationContext = scope.ServiceProvider.GetService<ApplicationContext>();
-    if (applicationContext != null)
-    {
-        await applicationContext.Database.EnsureDeletedAsync();
-        await applicationContext.Database.EnsureCreatedAsync();
-        // TODO await applicationContext.Database.MigrateAsync();
-    }
+    if (applicationContext != null) await applicationContext.Database.MigrateAsync();
 }
 
 // Configure the HTTP request pipeline.
