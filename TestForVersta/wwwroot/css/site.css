@@ -54,3 +54,16 @@ td {
   border-radius: 3px;
   border-width: thin;
 }
+
+thead td {
+  font-weight: bold;
+  background-color: #e0ffff;
+}
+
+tbody .row-id {
+  font-weight: bold;
+}
+
+tbody .row-1 {
+  background-color: #f0f0f0;
+}
