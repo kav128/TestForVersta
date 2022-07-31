@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using TestForVersta.BLL.Services;
 using TestForVersta.Models;
@@ -10,12 +12,17 @@ public class OrdersController : Controller
     private readonly ILogger<OrdersController> _logger;
     private readonly IOrderService _orderService;
     private readonly IMapper _mapper;
+    private readonly IValidator<OrderInsertModel> _validator;
 
-    public OrdersController(ILogger<OrdersController> logger, IOrderService orderService, IMapper mapper)
+    public OrdersController(ILogger<OrdersController> logger,
+                            IOrderService orderService,
+                            IMapper mapper,
+                            IValidator<OrderInsertModel> validator)
     {
         _logger = logger;
         _orderService = orderService;
         _mapper = mapper;
+        _validator = validator;
     }
 
     public async Task<IActionResult> Index()
@@ -29,12 +36,18 @@ public class OrdersController : Controller
         return View();
     }
     
-    
     [HttpPost]
-    public IActionResult Add(OrderInsertModel model)
+    public async Task<IActionResult> Add(OrderInsertModel model)
     {
+        var validationResult = await _validator.ValidateAsync(model);
+        if (!validationResult.IsValid)
+        {
+            validationResult.AddToModelState(ModelState, null);
+            return View(model);
+        }
+        
         var orderInsertModel = _mapper.Map<BLL.Models.OrderInsertModel>(model);
-        _orderService.AddOrder(orderInsertModel);
+        await _orderService.AddOrder(orderInsertModel);
         return RedirectToAction("Index");
     }
 }

@@ -11,7 +11,7 @@
                 <label asp-for="SenderCity">Sender's city</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="SenderCity"/>
+                <input type="text" asp-for="SenderCity" required/>
                 <span asp-validation-for="SenderCity"></span>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 <label asp-for="SenderAddress">Sender's address</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="SenderAddress"/>
+                <input type="text" asp-for="SenderAddress" required/>
                 <span asp-validation-for="SenderAddress"></span>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <label asp-for="ReceiverCity">Receiver's city</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="ReceiverCity"/>
+                <input type="text" asp-for="ReceiverCity" required/>
                 <span asp-validation-for="ReceiverCity"></span>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <label asp-for="ReceiverAddress">Receiver's address</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="ReceiverAddress"/>
+                <input type="text" asp-for="ReceiverAddress" required/>
                 <span asp-validation-for="ReceiverAddress"></span>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 <label asp-for="Weight">Parcel weight, kg</label>
             </div>
             <div class="form-input">
-                <input type="number" asp-for="Weight" min="0" step=".01"/>
+                <input type="number" asp-for="Weight" min="0" step=".01" required/>
                 <span asp-validation-for="Weight"></span>
             </div>
         </div>
@@ -56,7 +56,7 @@
                 <label asp-for="DeliveryDate">Delivery date</label>
             </div>
             <div class="form-input">
-                <input type="date" asp-for="DeliveryDate"/>
+                <input type="date" asp-for="DeliveryDate" required/>
                 <span asp-validation-for="DeliveryDate"></span>
             </div>
         </div>

@@ -1,8 +1,11 @@
 using System.Globalization;
+using FluentValidation;
 using Microsoft.AspNetCore.Localization;
 using TestForVersta;
 using TestForVersta.BLL;
 using TestForVersta.DAL;
+using TestForVersta.Models;
+using TestForVersta.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,7 @@ builder.Services
        .UseBusinessLogicLayer()
        .AddAutoMapper(expression => expression.AddProfilesFromBLL()
                                               .AddProfilesFromPresentation())
+       .AddScoped<IValidator<OrderInsertModel>, OrderInsertModelValidator>()
        .AddControllersWithViews();
 
 var app = builder.Build();
