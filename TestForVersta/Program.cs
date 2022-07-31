@@ -1,6 +1,7 @@
 using System.Globalization;
 using FluentValidation;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 using TestForVersta;
 using TestForVersta.BLL;
 using TestForVersta.DAL;
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services
-       .UseDataAccessLayer()
+       .UseDataAccessLayer(optionsBuilder => optionsBuilder.UseSqlite("Data Source=database.db"))
        .UseBusinessLogicLayer()
        .AddAutoMapper(expression => expression.AddProfilesFromBLL()
                                               .AddProfilesFromPresentation())

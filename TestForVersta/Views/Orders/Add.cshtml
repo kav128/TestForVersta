@@ -56,7 +56,7 @@
                 <label asp-for="DeliveryDate">Delivery date</label>
             </div>
             <div class="form-input">
-                <input type="date" asp-for="DeliveryDate" required/>
+                <input type="date" asp-for="DeliveryDate" min="2020-01-01" required/>
                 <span asp-validation-for="DeliveryDate"></span>
             </div>
         </div>
