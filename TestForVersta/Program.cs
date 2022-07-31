@@ -1,5 +1,6 @@
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using TestForVersta;
 using TestForVersta.BLL;
 using TestForVersta.DAL;
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
        .UseDataAccessLayer()
        .UseBusinessLogicLayer()
+       .AddAutoMapper(expression => expression.AddProfilesFromBLL()
+                                              .AddProfilesFromPresentation())
        .AddControllersWithViews();
 
 var app = builder.Build();
@@ -41,8 +44,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-                       name: "default",
-                       pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

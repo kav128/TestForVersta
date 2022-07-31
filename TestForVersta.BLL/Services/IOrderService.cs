@@ -4,12 +4,7 @@ namespace TestForVersta.BLL.Services;
 
 public interface IOrderService
 {
-    // TODO Add cancellation tokens
-    public Task AddOrder(OrderInsertModel orderModel);
-    
-    // TODO Add cancellation tokens
-    public Task<Order?> GetOrder(long id);
-    
-    // TODO Add cancellation tokens
-    public Task<IList<Order>> GetOrders();
+    public Task AddOrder(OrderInsertModel orderModel, CancellationToken cancellationToken = default);
+    public Task<Order?> GetOrder(long id, CancellationToken cancellationToken = default);
+    public Task<IList<Order>> GetOrders(CancellationToken cancellationToken = default);
 }

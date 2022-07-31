@@ -1,4 +1,5 @@
-﻿using TestForVersta.BLL.Models;
+﻿using AutoMapper;
+using TestForVersta.BLL.Models;
 using TestForVersta.DAL.Repositories;
 
 namespace TestForVersta.BLL.Services;
@@ -6,58 +7,29 @@ namespace TestForVersta.BLL.Services;
 public class OrderService : IOrderService
 {
     private readonly IOrderRepository _orderRepository;
+    private readonly IMapper _mapper;
 
-    public OrderService(IOrderRepository orderRepository) => _orderRepository = orderRepository;
-
-    // TODO Add cancellation tokens
-    public async Task AddOrder(OrderInsertModel orderModel)
+    public OrderService(IOrderRepository orderRepository, IMapper mapper)
     {
-        // TODO Use AutoMapper
-        var order = new DAL.Entities.Order
-        {
-            SenderCity = orderModel.SenderCity,
-            SenderAddress = orderModel.SenderAddress,
-            ReceiverCity = orderModel.ReceiverCity,
-            ReceiverAddress = orderModel.ReceiverAddress,
-            Weight = orderModel.Weight,
-            DeliveryDate = orderModel.DeliveryDate
-        };
-        
-        await _orderRepository.InsertOrder(order);
+        _orderRepository = orderRepository;
+        _mapper = mapper;
     }
 
-    // TODO Add cancellation tokens
-    public async Task<Order?> GetOrder(long id)
+    public async Task AddOrder(OrderInsertModel orderModel, CancellationToken cancellationToken = default)
     {
-        var orderEntity = await _orderRepository.GetOrderById(id);
-        
-        if (orderEntity is null) return null;
-        return new Order
-        {
-            Id = orderEntity.Id,
-            SenderCity = orderEntity.SenderCity,
-            SenderAddress = orderEntity.SenderAddress,
-            ReceiverCity = orderEntity.ReceiverCity,
-            ReceiverAddress = orderEntity.ReceiverAddress,
-            Weight = orderEntity.Weight,
-            DeliveryDate = orderEntity.DeliveryDate
-        };
+        var order = _mapper.Map<DAL.Entities.Order>(orderModel);
+        await _orderRepository.InsertOrder(order, cancellationToken);
     }
 
-    // TODO Add cancellation tokens
-    public async Task<IList<Order>> GetOrders()
+    public async Task<Order?> GetOrder(long id, CancellationToken cancellationToken = default)
     {
-        var orders = await _orderRepository.GetOrders();
-        return orders.Select(order => new Order
-                      {
-                          Id = order.Id,
-                          SenderCity = order.SenderCity,
-                          SenderAddress = order.SenderAddress,
-                          ReceiverCity = order.ReceiverCity,
-                          ReceiverAddress = order.ReceiverAddress,
-                          Weight = order.Weight,
-                          DeliveryDate = order.DeliveryDate
-                      })
-                     .ToList();
+        var orderEntity = await _orderRepository.GetOrderById(id, cancellationToken);
+        return orderEntity is null ? null : _mapper.Map<Order>(orderEntity);
+    }
+
+    public async Task<IList<Order>> GetOrders(CancellationToken cancellationToken = default)
+    {
+        var orders = await _orderRepository.GetOrders(cancellationToken);
+        return _mapper.Map<IList<Order>>(orders);
     }
 }

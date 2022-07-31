@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TestForVersta.BLL.Services;
 using TestForVersta.Models;
 
@@ -8,27 +9,19 @@ public class OrdersController : Controller
 {
     private readonly ILogger<OrdersController> _logger;
     private readonly IOrderService _orderService;
+    private readonly IMapper _mapper;
 
-    public OrdersController(ILogger<OrdersController> logger, IOrderService orderService)
+    public OrdersController(ILogger<OrdersController> logger, IOrderService orderService, IMapper mapper)
     {
         _logger = logger;
         _orderService = orderService;
+        _mapper = mapper;
     }
 
     public async Task<IActionResult> Index()
     {
-        var orders = (await _orderService.GetOrders()).Select(order => new Order
-                                                       {
-                                                           Id = order.Id,
-                                                           SenderCity = order.SenderCity,
-                                                           SenderAddress = order.SenderAddress,
-                                                           ReceiverCity = order.ReceiverCity,
-                                                           ReceiverAddress = order.ReceiverAddress,
-                                                           Weight = order.Weight,
-                                                           DeliveryDate = order.DeliveryDate
-                                                       })
-                                                      .ToList();
-        return View(orders);
+        var orders = await _orderService.GetOrders();
+        return View(_mapper.Map<IList<Order>>(orders));
     }
     
     public IActionResult Add()
@@ -40,16 +33,7 @@ public class OrdersController : Controller
     [HttpPost]
     public IActionResult Add(OrderInsertModel model)
     {
-        var orderInsertModel = new BLL.Models.OrderInsertModel
-        {
-            SenderCity = model.SenderCity,
-            SenderAddress = model.SenderAddress,
-            ReceiverCity = model.ReceiverCity,
-            ReceiverAddress = model.ReceiverAddress,
-            Weight = model.Weight,
-            DeliveryDate = model.DeliveryDate
-        };
-        
+        var orderInsertModel = _mapper.Map<BLL.Models.OrderInsertModel>(model);
         _orderService.AddOrder(orderInsertModel);
         return RedirectToAction("Index");
     }
