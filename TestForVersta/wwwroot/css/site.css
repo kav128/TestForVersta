@@ -17,6 +17,10 @@ body {
   margin-bottom: 60px;
 }
 
+.order-table {
+  width: 100%;
+}
+
 table, td, tr {
   border-color: inherit;
   border-style: solid;
@@ -32,21 +36,26 @@ td {
 }
 
 .form-container {
-  width: 400px;
+  width: 600px;
   margin: auto;
 }
 
-.form-label, .form-input {
+.form-row {
+  padding: 5px 0 5px 0;
+}
+
+.input-label, .form-input {
   display: inline-block;
 }
 
-.form-label {
+.input-label {
   width: 140px;
+  vertical-align: top;
 }
 
 .form-input {
   margin-left: 10px;
-  width: 245px;
+  width: 445px;
 }
 
 .form-input input {
@@ -66,4 +75,17 @@ tbody .row-id {
 
 tbody .row-1 {
   background-color: #f0f0f0;
+}
+
+.field-validation-error {
+  display: block;
+  background-color: indianred;
+  color: antiquewhite;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.total-sign {
+  text-align: end;
 }

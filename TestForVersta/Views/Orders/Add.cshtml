@@ -1,13 +1,16 @@
 ﻿@model OrderInsertModel
+@{
+    ViewData["Title"] = "Place a new order";
+}
 
 <div class="text-center">
-    <h1 class="display-4">Orders</h1>
+    <h1 class="display-4">Place a new order</h1>
 </div>
 
 <div class="form-container">
     <form method="post">
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="SenderCity">Sender's city</label>
             </div>
             <div class="form-input">
@@ -16,7 +19,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="SenderAddress">Sender's address</label>
             </div>
             <div class="form-input">
@@ -25,7 +28,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="ReceiverCity">Receiver's city</label>
             </div>
             <div class="form-input">
@@ -34,7 +37,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="ReceiverAddress">Receiver's address</label>
             </div>
             <div class="form-input">
@@ -43,7 +46,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="Weight">Parcel weight, kg</label>
             </div>
             <div class="form-input">
@@ -52,7 +55,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label">
+            <div class="input-label">
                 <label asp-for="DeliveryDate">Delivery date</label>
             </div>
             <div class="form-input">
@@ -61,7 +64,7 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-label"></div>
+            <div class="input-label"></div>
             <div class="form-input">
                 <input type="submit" value="Submit"/>
             </div>

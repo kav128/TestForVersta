@@ -3,36 +3,46 @@
     ViewData["Title"] = "Orders";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Orders</h1>
+<div>
+    <div class="text-center">
+        <h1 class="display-4">Orders</h1>
 
-    <table>
-        <thead>
-        <tr>
-            <td>Order ID</td>
-            <td>Sender's city</td>
-            <td>Sender's address</td>
-            <td>Receiver's city</td>
-            <td>Receiver's address</td>
-            <td>Parcel weight, kg</td>
-            <td>Delivery date</td>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var (order, i) in Model.Select((o, i) => (o, i % 2)))
-        {
-            <tr class="row-@i">
-                <td class="row-id">@order.Id</td>
-                <td>@order.SenderCity</td>
-                <td>@order.SenderAddress</td>
-                <td>@order.ReceiverCity</td>
-                <td>@order.ReceiverAddress</td>
-                <td>@order.Weight.ToString("N2")</td>
-                <td>@order.DeliveryDate.ToString("dd.MM.yyyy")</td>
+        <table class="order-table">
+            <thead>
+            <tr>
+                <td>Order ID</td>
+                <td>Sender's city</td>
+                <td>Sender's address</td>
+                <td>Receiver's city</td>
+                <td>Receiver's address</td>
+                <td>Parcel weight, kg</td>
+                <td>Delivery date</td>
             </tr>
-        }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            @foreach (var (order, i) in Model.Select((o, i) => (o, i % 2)))
+            {
+                <tr class="row-@i">
+                    <td class="row-id">@order.Id</td>
+                    <td>@order.SenderCity</td>
+                    <td>@order.SenderAddress</td>
+                    <td>@order.ReceiverCity</td>
+                    <td>@order.ReceiverAddress</td>
+                    <td>@order.Weight.ToString("N2")</td>
+                    <td>@order.DeliveryDate.ToString("dd.MM.yyyy")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
 
-    <p>Total @Model.Count records.</p>
+
+    @if (Model.Count == 1)
+    {
+        <p class="total-sign">Total 1 record.</p>
+    }
+    else
+    {
+        <p class="total-sign">Total @Model.Count records.</p>
+    }
 </div>
