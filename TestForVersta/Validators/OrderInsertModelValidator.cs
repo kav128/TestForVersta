@@ -3,8 +3,14 @@ using TestForVersta.Models;
 
 namespace TestForVersta.Validators;
 
+/// <summary>
+/// Represents a validator for <see cref="OrderInsertModel"/>.
+/// </summary>
 public class OrderInsertModelValidator : AbstractValidator<OrderInsertModel>
 {
+    /// <summary>
+    /// Initializes a new instance of <see cref="OrderInsertModelValidator"/>.
+    /// </summary>
     public OrderInsertModelValidator()
     {
         RuleFor(model => model.SenderCity).NotEmpty().MaximumLength(20);

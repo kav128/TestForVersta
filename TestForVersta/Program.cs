@@ -17,7 +17,7 @@ var connectionString = string.Format(builder.Configuration.GetConnectionString("
 builder.Services
        .UseDataAccessLayer(optionsBuilder => optionsBuilder.UseSqlServer(connectionString))
        .UseBusinessLogicLayer()
-       .AddAutoMapper(expression => expression.AddProfilesFromBLL()
+       .AddAutoMapper(expression => expression.AddProfilesFromBll()
                                               .AddProfilesFromPresentation())
        .AddScoped<IValidator<OrderInsertModel>, OrderInsertModelValidator>()
        .AddControllersWithViews();

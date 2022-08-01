@@ -1,7 +1,7 @@
 ﻿namespace TestForVersta.Models;
 
 /// <summary>
-/// Represents an order.
+/// Represents an order to be inserted to the database.
 /// </summary>
 public record OrderInsertModel
 {

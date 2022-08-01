@@ -3,18 +3,36 @@ using TestForVersta.DAL.Entities;
 
 namespace TestForVersta.DAL;
 
+/// <summary>
+/// An application database context. <seealso cref="DbContext"/>
+/// </summary>
 public class ApplicationContext : DbContext
 {
-    public DbSet<Order> Orders { get; set; }
+    /// <summary>
+    /// Gets or inits a set for accessing orders. <seealso cref="DbSet{TEntity}"/>.
+    /// </summary>
+    public DbSet<Order> Orders { get; init; }
 
+    /// <summary>
+    /// Initializes a new instance of <see cref="ApplicationContext"/>.
+    /// </summary>
     public ApplicationContext()
     {
     }
 
+    /// <summary>
+    /// Initializes a new instance of <see cref="ApplicationContext"/> using the specified options.
+    /// </summary>
+    /// <param name="options">Options for this context.</param>
     public ApplicationContext(DbContextOptions options) : base(options)
     {
     }
 
+
+    /// <summary>
+    /// Configures the data model.
+    /// </summary>
+    /// <param name="modelBuilder">The builder being used to construct the model for this context.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Order>().HasKey(order => order.Id);
