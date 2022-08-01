@@ -14,7 +14,7 @@
                 <label asp-for="SenderCity">Sender's city</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="SenderCity" required/>
+                <input type="text" asp-for="SenderCity" maxlength="20" required/>
                 <span asp-validation-for="SenderCity"></span>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <label asp-for="SenderAddress">Sender's address</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="SenderAddress" required/>
+                <input type="text" asp-for="SenderAddress" maxlength="64" required/>
                 <span asp-validation-for="SenderAddress"></span>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 <label asp-for="ReceiverCity">Receiver's city</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="ReceiverCity" required/>
+                <input type="text" asp-for="ReceiverCity" maxlength="20" required/>
                 <span asp-validation-for="ReceiverCity"></span>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <label asp-for="ReceiverAddress">Receiver's address</label>
             </div>
             <div class="form-input">
-                <input type="text" asp-for="ReceiverAddress" required/>
+                <input type="text" asp-for="ReceiverAddress" maxlength="64" required/>
                 <span asp-validation-for="ReceiverAddress"></span>
             </div>
         </div>
@@ -50,7 +50,7 @@
                 <label asp-for="Weight">Parcel weight, kg</label>
             </div>
             <div class="form-input">
-                <input type="number" asp-for="Weight" min="0" step=".01" required/>
+                <input type="number" asp-for="Weight" min=".01" step=".01" required/>
                 <span asp-validation-for="Weight"></span>
             </div>
         </div>
