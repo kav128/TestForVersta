@@ -13,7 +13,8 @@ public static class ExtensionUtils
     /// </summary>
     /// <param name="expression">The Automapper configuration expression that is used for configuring mapping.</param>
     /// <returns>The same mapper configuration so that multiple calls can be chained.</returns>
-    public static IMapperConfigurationExpression AddProfilesFromPresentation(this IMapperConfigurationExpression expression)
+    public static IMapperConfigurationExpression AddProfilesFromPresentation(
+        this IMapperConfigurationExpression expression)
     {
         expression.AddProfile<OrderProfile>();
         return expression;

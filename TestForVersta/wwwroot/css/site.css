@@ -1,91 +1,91 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .order-table {
-  width: 100%;
+    width: 100%;
 }
 
 table, td, tr {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 1px;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px;
 }
 
 td {
-  padding: 0.75rem;
+    padding: 0.75rem;
 }
 
 .text-center table {
-  margin: auto;
+    margin: auto;
 }
 
 .form-container {
-  width: 600px;
-  margin: auto;
+    width: 600px;
+    margin: auto;
 }
 
 .form-row {
-  padding: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
 }
 
 .input-label, .form-input {
-  display: inline-block;
+    display: inline-block;
 }
 
 .input-label {
-  width: 140px;
-  vertical-align: top;
+    width: 140px;
+    vertical-align: top;
 }
 
 .form-input {
-  margin-left: 10px;
-  width: 445px;
+    margin-left: 10px;
+    width: 445px;
 }
 
 .form-input input {
-  width: 100%;
-  border-radius: 3px;
-  border-width: thin;
+    width: 100%;
+    border-radius: 3px;
+    border-width: thin;
 }
 
 thead td {
-  font-weight: bold;
-  background-color: #e0ffff;
+    font-weight: bold;
+    background-color: #e0ffff;
 }
 
 tbody .row-id {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 tbody .row-1 {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
 
 .field-validation-error {
-  display: block;
-  background-color: indianred;
-  color: antiquewhite;
-  margin-top: 5px;
-  padding: 5px;
-  border-radius: 5px;
+    display: block;
+    background-color: indianred;
+    color: antiquewhite;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .total-sign {
-  text-align: end;
+    text-align: end;
 }

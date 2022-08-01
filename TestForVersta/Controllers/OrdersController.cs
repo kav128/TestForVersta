@@ -37,7 +37,7 @@ public class OrdersController : Controller
         var orders = await _orderService.GetOrders();
         return View(_mapper.Map<IList<Order>>(orders));
     }
-    
+
     /// <summary>
     /// An endpoint that gets a form to input data for a new <see cref="Order"/>.
     /// </summary>
@@ -58,7 +58,7 @@ public class OrdersController : Controller
             validationResult.AddToModelState(ModelState, null);
             return View(model);
         }
-        
+
         var orderInsertModel = _mapper.Map<BLL.Models.OrderInsertModel>(model);
         await _orderService.AddOrder(orderInsertModel);
         return RedirectToAction("Index");
