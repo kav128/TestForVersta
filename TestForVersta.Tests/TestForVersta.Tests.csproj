@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TestForVersta.BLL\TestForVersta.BLL.csproj" />
+      <ProjectReference Include="..\TestForVersta\TestForVersta.csproj" />
     </ItemGroup>
 
 </Project>
