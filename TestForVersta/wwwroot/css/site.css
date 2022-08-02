@@ -89,3 +89,9 @@ tbody .row-1 {
 .total-sign {
     text-align: end;
 }
+
+.github-logo {
+    display: inline-block;
+    float: right;
+    width: 25px;
+}
