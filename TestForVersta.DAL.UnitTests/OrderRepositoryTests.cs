@@ -9,6 +9,7 @@ using TestForVersta.DAL.Repositories;
 
 namespace TestForVersta.DAL.UnitTests;
 
+[TestFixture]
 public class OrderRepositoryTests
 {
     private ApplicationContext _applicationContext;

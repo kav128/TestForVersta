@@ -10,6 +10,7 @@ using TestForVersta.DAL.Repositories;
 
 namespace TestForVersta.BLL.UnitTests;
 
+[TestFixture]
 public class OrderServiceTests
 {
     private Mock<IOrderRepository> _orderRepositoryMock;

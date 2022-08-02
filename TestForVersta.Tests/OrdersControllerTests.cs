@@ -15,6 +15,7 @@ using TestForVersta.Models;
 
 namespace TestForVersta.Tests;
 
+[TestFixture]
 public class OrdersControllerTests
 {
     private Mock<ILogger<OrdersController>> _loggerMock;
