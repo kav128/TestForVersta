@@ -103,4 +103,17 @@ public class OrderRepositoryTests
         var finalList = await _applicationContext.Orders.ToListAsync();
         Assert.That(expected, Is.EquivalentTo(finalList));
     }
+    
+    [Test]
+    public async Task Insert_Test_ArgumentNullThrowsException()
+    {
+        var orderRepository = new OrderRepository(_applicationContext);
+        var initialList = await _applicationContext.Orders.ToListAsync();
+
+        async Task Action() => await orderRepository.InsertOrder(null!);
+
+        Assert.That(Action, Throws.TypeOf<ArgumentNullException>());
+        var finalList = await _applicationContext.Orders.ToListAsync();
+        Assert.That(finalList, Is.EquivalentTo(initialList));
+    }
 }

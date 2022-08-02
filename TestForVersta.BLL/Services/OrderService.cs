@@ -26,6 +26,8 @@ public class OrderService : IOrderService
     /// <inheritdoc />
     public async Task AddOrder(OrderInsertModel orderModel, CancellationToken cancellationToken = default)
     {
+        if (orderModel is null) throw new ArgumentNullException(nameof(orderModel));
+
         var order = _mapper.Map<DAL.Entities.Order>(orderModel);
         await _orderRepository.InsertOrder(order, cancellationToken);
     }

@@ -12,6 +12,7 @@ public interface IOrderService
     /// </summary>
     /// <param name="orderModel">The model to add.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+    /// <exception cref="ArgumentNullException">OrderModel is null.</exception>
     /// <returns>A task that represents the asynchronous operation.</returns>
     public Task AddOrder(OrderInsertModel orderModel, CancellationToken cancellationToken = default);
 

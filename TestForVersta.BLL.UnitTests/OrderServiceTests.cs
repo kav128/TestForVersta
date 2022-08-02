@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -40,6 +41,18 @@ public class OrderServiceTests
 
         _orderRepositoryMock.Verify(repository => repository.InsertOrder(orderDal, It.IsAny<CancellationToken>()),
                                     Times.Once);
+        _orderRepositoryMock.VerifyNoOtherCalls();
+    }
+
+    [Test]
+    public void AddOrder_Test_ArgumentNullThrowsException()
+    {
+        IOrderService orderService = new OrderService(_orderRepositoryMock.Object, _mapperMock.Object);
+
+        async Task Action() => await orderService.AddOrder(null!);
+
+        Assert.That(Action, Throws.TypeOf<ArgumentNullException>());
+        _mapperMock.VerifyNoOtherCalls();
         _orderRepositoryMock.VerifyNoOtherCalls();
     }
 

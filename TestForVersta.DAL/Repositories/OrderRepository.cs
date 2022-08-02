@@ -29,6 +29,8 @@ public class OrderRepository : IOrderRepository
     /// <inheritdoc />
     public async Task InsertOrder(Order order, CancellationToken cancellationToken = default)
     {
+        if (order is null) throw new ArgumentNullException(nameof(order));
+
         await _context.Orders.AddAsync(order, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
     }

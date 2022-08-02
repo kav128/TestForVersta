@@ -27,6 +27,7 @@ public interface IOrderRepository
     /// </summary>
     /// <param name="order">The entity to add.</param>
     /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to complete.</param>
+    /// <exception cref="ArgumentNullException">Order entity is null.</exception>
     /// <returns>A task that represents the asynchronous operation.</returns>
     public Task InsertOrder(Order order, CancellationToken cancellationToken = default);
 }
