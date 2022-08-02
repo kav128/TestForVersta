@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForVersta.BLL.UnitTests
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForVersta.Tests", "TestForVersta.Tests\TestForVersta.Tests.csproj", "{8943A6A7-8591-49DA-A3FC-B15C723260B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForVersta.DAL.UnitTests", "TestForVersta.DAL.UnitTests\TestForVersta.DAL.UnitTests.csproj", "{C6FAEC24-5250-4AED-82D8-7CF04F10B79D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +40,14 @@ Global
 		{8943A6A7-8591-49DA-A3FC-B15C723260B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8943A6A7-8591-49DA-A3FC-B15C723260B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8943A6A7-8591-49DA-A3FC-B15C723260B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FAEC24-5250-4AED-82D8-7CF04F10B79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FAEC24-5250-4AED-82D8-7CF04F10B79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FAEC24-5250-4AED-82D8-7CF04F10B79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FAEC24-5250-4AED-82D8-7CF04F10B79D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{95F936B1-AAB1-490D-BFC2-AF7E64823A0E} = {760CEAF4-5D05-4557-9570-F89C6A29A2D1}
 		{8943A6A7-8591-49DA-A3FC-B15C723260B4} = {760CEAF4-5D05-4557-9570-F89C6A29A2D1}
+		{C6FAEC24-5250-4AED-82D8-7CF04F10B79D} = {760CEAF4-5D05-4557-9570-F89C6A29A2D1}
 	EndGlobalSection
 EndGlobal
