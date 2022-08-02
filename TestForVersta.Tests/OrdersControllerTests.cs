@@ -163,4 +163,21 @@ public class OrdersControllerTests
         _mapperMock.VerifyNoOtherCalls();
         _orderServiceMock.VerifyNoOtherCalls();
     }
+    
+    [Test]
+    public void Post_Add_Test_ArgumentNullThrowsException()
+    {
+        var ordersController = new OrdersController(_loggerMock.Object,
+                                                    _orderServiceMock.Object,
+                                                    _mapperMock.Object,
+                                                    _validatorMock.Object);
+
+        async Task<IActionResult> Action() => await ordersController.Add(null!);
+
+        Assert.That(Action, Throws.TypeOf<ArgumentNullException>());
+
+        _validatorMock.VerifyNoOtherCalls();
+        _mapperMock.VerifyNoOtherCalls();
+        _orderServiceMock.VerifyNoOtherCalls();
+    }
 }

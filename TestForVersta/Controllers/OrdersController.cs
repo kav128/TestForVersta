@@ -52,6 +52,8 @@ public class OrdersController : Controller
     [HttpPost]
     public async Task<IActionResult> Add(OrderInsertModel model)
     {
+        if (model is null) throw new ArgumentNullException(nameof(model));
+        
         var validationResult = await _validator.ValidateAsync(model);
         if (!validationResult.IsValid)
         {
